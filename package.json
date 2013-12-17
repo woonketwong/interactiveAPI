@@ -1,12 +1,12 @@
 {
-    "name": "mean",
-    "description": "MEAN - A Modern Stack: MongoDB, ExpressJS, AngularJS, NodeJS. (BONUS: Passport User Support).",
+    "name": "Epic Interactive APIs",
+    "description": "A single page app with user friendly UI allowing APIs interaction.",
     "version": "0.1.0",
     "private": false,
-    "author": "Amos Haviv",
+    "author": "Woon Ket Wong",
     "repository": {
         "type": "git",
-        "url": "https://github.com/linnovate/mean.git"
+        "url": "https://github.com/woonketwong/interactiveAPI"
     },
     "engines": {
         "node": "0.10.x",
