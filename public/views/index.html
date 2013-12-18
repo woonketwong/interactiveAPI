@@ -9,9 +9,9 @@
 	    <table id="url-container">
 	      <tr>
 	        <td class="method">
-	          <select name="method" id="method">
-		          <option value="get">GET</option>
-		          <option value="post">POST</option>
+	          <select ng-model="method">
+		          <option value="GET">GET</option>
+		          <option value="POST">POST</option>
 	          </select>
 	        </td>
 	        <td class="url">
@@ -20,6 +20,8 @@
 	      </tr>
 	      <tr>
 	        <td>
+	          {{method}}
+		        </br>
 	          http://{{url}}	        	
 	        </td>
 	      </tr>
@@ -132,7 +134,7 @@
 	  <div class="span2">
 	  </div>
 	  <div class="span10">
-	    <button type="submit" class="btn btn-large btn-primary" id="execute_button" data-bind="visible:isIdle, enable:url">
+	    <button type="submit" class="btn btn-large btn-primary" id="execute_button" ng-click="httpRequest()">
 	      <i class="icon-bolt"></i> Launch Request
 	    </button>
 	    <button class="btn btn-large disabled hide" data-bind="bsvisible:isExecuting()"><i class="icon-refresh icon-spin"></i> Working...</button>
