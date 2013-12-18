@@ -5,7 +5,9 @@ var express = require('express'),
     fs = require('fs'),
     passport = require('passport'),
     logger = require('mean-logger');
-
+    var fs = require('fs');
+    var flash = require("connect-flash");
+    var path = require("path");
 /**
  * Main application entry file.
  * Please note that the order of loading is important.
@@ -42,6 +44,22 @@ walk(models_path);
 require('./config/passport')(passport);
 
 var app = express();
+app.configure(function () {
+  app.set('port', process.env.PORT || 3000);
+  // app.set('views', __dirname + '/views');
+  app.set('view engine', 'jade');
+  app.use(express.favicon());
+  app.use(express.logger('dev'));
+  app.use(express.cookieParser());
+  app.use(express.bodyParser());
+  app.use(express.session({ secret: 'keyboard cat' }));
+  app.use(passport.initialize());
+  app.use(passport.session());
+  app.use(express.methodOverride());
+  // app.use(flash());
+  app.use(app.router);
+  app.use(express.static(path.join(__dirname, 'public')));
+});
 
 //express settings
 require('./config/express')(app, passport, db);
