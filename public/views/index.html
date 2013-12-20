@@ -122,11 +122,6 @@
 	      <button class="btn" data-bind="click:addParams"><i class="icon-plus"></i>  Add Parameter(s)</button>
 	      <button class="btn" data-bind="click:addBody, visible:isPostStyle"><i class="icon-plus"></i>  Add Body</button>
 	    </p>
-
-	    <div id="body" data-bind="visible:hasBody">
-	      <textarea name="body" class="hide" rows="6" data-bind="text:body"></textarea>
-	      <div id="bodyeditor" data-bind="ace:body,aceOptions:{'theme':'clouds'},aceMode:editorMode" style="border: 1px solid #ccc; height: 400px;">{{response}}</div>
-	    </div>
 	  </div>
 	</div>
 
@@ -138,6 +133,10 @@
 	      <i class="icon-bolt"></i> Launch Request
 	    </button>
 	    <button class="btn btn-large disabled hide" data-bind="bsvisible:isExecuting()"><i class="icon-refresh icon-spin"></i> Working...</button>
+	    <div id="body">
+	      <!-- <textarea name="body" class="hide" rows="6"></textarea> -->
+	      <div show-response template="{{template}}" id="bodyeditor" style="height: auto;"></div>
+	    </div>
 	  </div>
 	</div>
 	<div class="row-fluid">

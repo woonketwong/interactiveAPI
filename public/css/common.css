@@ -23,3 +23,32 @@ footer {
 footer p {
     padding:5px 0 12px 10px
 }
+
+.json-markup {
+    line-height: 17px;
+    font-size: 13px;
+    font-family: monospace;
+    white-space: pre;
+}
+.json-markup-key {
+    font-weight: bold;
+}
+.json-markup-bool {
+    color: firebrick;
+}
+.json-markup-string {
+    color: green;
+}
+.json-markup-null {
+    color: gray;
+}
+.json-markup-number {
+    color: blue;
+}
+.responseGroup {
+    padding: 2px;
+    background-color: #404040;
+    color: white;
+    padding: 3px 6px 3px 6px;
+    border-radius: 6px;
+}
