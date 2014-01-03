@@ -1,5 +1,4 @@
 	<h1>Create API Request</h1>
-	<p>Try www.google.com/calendar/feeds/developer-calendar@google.com/public/full?alt=json</p>
 	<div class="row-fluid">
 	  <div class="span2">
 	    <h4>Destination</h4>
@@ -19,6 +18,7 @@
 	        </td>
 	      </tr>
 	    </table>
+	    <p>Ex: www.google.com/calendar/feeds/developer-calendar@google.com/public/full?alt=json</p>
 	  </div>
 	</div>
 
@@ -27,7 +27,7 @@
 	  </div>
 	  <div class="span10">
 	    <button type="submit" class="btn btn-large btn-primary" id="execute_button" ng-click="httpRequest()">
-	      <i class="icon-bolt"></i> Launch Request
+	      Launch Request
 	    </button>
 	    <button class="btn btn-large disabled hide" data-bind="bsvisible:isExecuting()"><i class="icon-refresh icon-spin"></i> Working...</button>
 	    <div id="body">
