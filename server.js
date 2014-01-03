@@ -21,7 +21,7 @@ var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development',
     mongoose = require('mongoose');
 
 console.log("****************************");
-console.log("* Current ENV:", app.get('env'));
+console.log("* Current ENV:", express.get('env'));
 console.log("****************************");
 
 //Bootstrap db connection
