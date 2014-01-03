@@ -20,10 +20,6 @@ var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development',
     auth = require('./config/middlewares/authorization'),
     mongoose = require('mongoose');
 
-console.log("****************************");
-console.log("* Current ENV:", express.get('env'));
-console.log("****************************");
-
 //Bootstrap db connection
 // var db = mongoose.connect(config.db);
 
@@ -57,6 +53,11 @@ walk(models_path);
 require('./config/passport')(passport);
 
 var app = express();
+
+console.log("****************************");
+console.log("* Current ENV:", app.get('env'));
+console.log("****************************");
+
 app.configure(function () {
   app.set('port', process.env.PORT || 3000);
   // app.set('views', __dirname + '/views');
