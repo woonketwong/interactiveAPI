@@ -20,6 +20,10 @@ var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development',
     auth = require('./config/middlewares/authorization'),
     mongoose = require('mongoose');
 
+console.log("****************************");
+console.log("* Current ENV:", app.get('env'));
+console.log("****************************");
+
 //Bootstrap db connection
 // var db = mongoose.connect(config.db);
 
