@@ -1,6 +1,13 @@
 .navbar .nav>li>a.brand {
-    padding-left:20px;
-    margin-left:0
+    padding-left: 20px;
+    margin: 8px 0px 8px 150px;
+    line-height: 1.5;
+    font-family: 'AvenirLT-Book',"Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: white;
+    font-size: 25px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    word-spacing: 4px;
 }
 
 .content {
@@ -8,6 +15,18 @@
     width:100%
 }
 
+.container {
+    margin-top: 150px;
+}
+
+.container h1{
+    font-size: 2.3em;
+    line-height: 1.5em;
+    margin-bottom: 0.75em;
+    font-weight: bold;
+    font-family: 'AvenirLT-Heavy',"Helvetica Neue",Helvetica,Arial,sans-serif;
+    letter-spacing: 1.5px;
+}
 footer {
     position:fixed;
     left:0px;
@@ -51,4 +70,34 @@ footer p {
     color: white;
     padding: 3px 6px 3px 6px;
     border-radius: 6px;
+}
+.method {
+}
+#url-container {
+    width: 100%;
+}
+/*#url-container input {
+    width: 10%;
+}*/
+#url {
+    position: absolute;
+    margin-right: 50px;
+    width: 50%;
+}
+table {
+    max-width: 100%;
+    background-color: transparent;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+#url-container .method, #url-container select {
+width: 125px;
+}
+
+.navbar-inverse .navbar-inner {
+  border-color: #2d3744;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff222222', endColorstr='#ff111111', GradientType=0);
+  background: #2d3744 no-repeat center center;
+  height: 70px;
+  min-width: 1000px;
 }
