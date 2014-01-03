@@ -1,4 +1,5 @@
 	<h1>Create API Request</h1>
+	<p>Try www.google.com/calendar/feeds/developer-calendar@google.com/public/full?alt=json</p>
 	<div class="row-fluid">
 	  <div class="span2">
 	    <h4>Destination</h4>
@@ -31,7 +32,7 @@
 	    <button class="btn btn-large disabled hide" data-bind="bsvisible:isExecuting()"><i class="icon-refresh icon-spin"></i> Working...</button>
 	    <div id="body">
 	      <!-- <textarea name="body" class="hide" rows="6"></textarea> -->
-	      <div show-response template="{{template}}" id="bodyeditor" style="height: auto;"></div>
+	      <div show-response id="responseEditor" template="{{template}}" style="height: auto;"></div>
 	    </div>
 	  </div>
 	</div>

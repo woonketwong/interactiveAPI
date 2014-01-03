@@ -16,16 +16,31 @@ angular.module('mean.system').controller('IndexController', ['$scope', '$http', 
 			// console.log("defaults headers:", $httpProvider.defaults.headers);
 	    $http({method: method, url: url})
 		    .success(function(data, status, headers, config){
-		    	var resultHtmlStatus = jsonMarkup(status);
-		    	var resultHtmlHeaders = jsonMarkup(headers());
-		    	console.log(headers);
-		    	console.log(status);
-		    	console.log(config);
-		    	// console.log(headers());
-		    	var resultHtmlBody = jsonMarkup(data);
-		    	$scope.template = "<small class='responseGroup'>Status</small>" + resultHtmlStatus +
-		    	                  "<small class='responseGroup'>Headers</small>" + resultHtmlHeaders  +
-		    	                  "<small class='responseGroup'>Body</small>" + resultHtmlBody; 
+		    	// alert(headers());
+		    	var contentTypeArray = headers()["content-type"].replace(/ +/g, "").split(";");
+		    	var contentType = '';
+		    	console.log(contentTypeArray);
+
+		    	for (var i = 0; i < contentTypeArray.length; i++){
+		    		if (contentTypeArray[i] === "application/json"){
+		    			contentType = contentTypeArray[i];
+		    		}
+		    	}
+		    	// alert(contentType);
+		    	if(contentType === "application/json"){
+			    	var resultHtmlBody = jsonMarkup(data);
+	        } else {
+            var resultHtmlBody = data;
+	        }
+			    	var resultHtmlStatus = jsonMarkup(status);
+			    	var resultHtmlHeaders = jsonMarkup(headers());
+			    	console.log(headers);
+			    	console.log(status);
+			    	console.log(config);
+			    	// console.log(headers());
+			    	$scope.template = "<small class='responseGroup'>Status</small>" + resultHtmlStatus +
+			    	                  "<small class='responseGroup'>Headers</small>" + resultHtmlHeaders  +
+			    	                  "<small class='responseGroup'>Body</small>" + resultHtmlBody; 
 		    })
 		    .error(function(data, status, headers, config){
 		    	$scope.response = "Request Error!";
