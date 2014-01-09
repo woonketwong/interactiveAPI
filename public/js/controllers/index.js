@@ -6,45 +6,49 @@ angular.module('mean.system').controller('IndexController', ['$scope', '$http', 
 		// api.github.com/users/woonketwong
 
 		$scope.httpRequest = function(){
-			console.log("hello");
-			var url = "https://" + $scope.url;
+			console.log("document URL:", document.URL);
+			var url = document.URL;
 			// var url = "http://" + "datsy-dev.azurewebsites.net/search/tag";
 			var method = $scope.method;
 			console.log(url);
 			// console.log("defaults headers:", $http.defaults.headers);
 			// $http.defaults.headers.common.get = {'Access-Control-Expose-Headers': 'custom-header'};
 			// console.log("defaults headers:", $httpProvider.defaults.headers);
-	    $http({method: method, url: url})
-		    .success(function(data, status, headers, config){
-		    	// alert(headers());
-		    	var contentTypeArray = headers()["content-type"].replace(/ +/g, "").split(";");
-		    	var contentType = '';
-		    	console.log(contentTypeArray);
+	    $http({
+	    	method: "POST",
+	    	url: url,
+	    	data: {method: method, url:$scope.url}
+	    })
+	    .success(function(data, status, headers, config){
+	    	var contentType = data.headers["content-type"];
+	    	console.log("headers",data);
+	    	// alert(contentType);
+ 				// var contentType = "application/json";
+        var contentTypeArray = contentType.replace(/ +/g, "").split(";");
+        console.log(contentTypeArray);
 
-		    	for (var i = 0; i < contentTypeArray.length; i++){
-		    		if (contentTypeArray[i] === "application/json"){
-		    			contentType = contentTypeArray[i];
-		    		}
-		    	}
-		    	// alert(contentType);
-		    	if(contentType === "application/json"){
-			    	var resultHtmlBody = jsonMarkup(data);
-	        } else {
-            var resultHtmlBody = data;
-	        }
-			    	var resultHtmlStatus = jsonMarkup(status);
-			    	var resultHtmlHeaders = jsonMarkup(headers());
-			    	console.log(headers);
-			    	console.log(status);
-			    	console.log(config);
-			    	// console.log(headers());
-			    	$scope.template = "<small class='responseGroup'>Status</small>" + resultHtmlStatus +
-			    	                  "<small class='responseGroup'>Headers</small>" + resultHtmlHeaders  +
-			    	                  "<small class='responseGroup'>Body</small>" + resultHtmlBody; 
-		    })
-		    .error(function(data, status, headers, config){
-		    	$scope.response = "Request Error!";
-		    });
+        // for (var i = 0; i < contentTypeArray.length; i++){
+        if (contentTypeArray[0] === "application/json"){
+          contentType = contentTypeArray[0];
+        }
+        // }
+	    	console.log("content-type",contentType);
+	    	// alert(contentType);
+	    	if(contentType === "application/json"){
+		    	var resultHtmlBody = jsonMarkup(JSON.parse(data.body));
+        } else {
+          var resultHtmlBody = JSON.stringify(data.body);
+        }
+		    	var resultHtmlStatus = jsonMarkup(status);
+		    	var resultHtmlHeaders = jsonMarkup(data.headers);
+		    	// console.log(headers());
+		    	$scope.template = "<small class='responseGroup'>Status</small>" + resultHtmlStatus +
+		    	                  "<small class='responseGroup'>Headers</small>" + resultHtmlHeaders  +
+		    	                  "<small class='responseGroup'>Body</small>" + resultHtmlBody; 
+	    })
+	    .error(function(data, status, headers, config){
+	    	$scope.response = "Request Error!";
+	    });
 	  }
 
 
