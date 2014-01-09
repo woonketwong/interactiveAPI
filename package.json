@@ -40,7 +40,8 @@
         "grunt": "latest",
         "grunt-cli": "latest",
         "grunt-env": "latest",
-        "json-markup": "0.1.x"
+        "json-markup": "0.1.x",
+        "request": "2.31.x"
     },
     "devDependencies": {
         "supertest": "latest",
