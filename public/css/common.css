@@ -11,7 +11,7 @@
 }
 
 .content {
-    margin-top:50px;
+    margin-top:0px;
     width:100%
 }
 
@@ -20,11 +20,12 @@
 }
 
 .container h1{
-    font-size: 2.1em;
+    font-size: 4.0em;
     line-height: 1.0em;
-    margin-bottom: 0.75em;
+    margin-bottom: 0.70em;
     font-weight: bold;
-    font-family: 'AvenirLT-Heavy',"Helvetica Neue",Helvetica,Arial,sans-serif;
+    /*font-family: 'AvenirLT-Heavy',"Helvetica Neue",Helvetica,Arial,sans-serif;*/
+    font-family: "Courier New", Courier, monospace;
     letter-spacing: 1.5px;
     color: #2d3745;
 }
@@ -96,12 +97,43 @@ width: 125px;
 }
 
 .navbar-inverse .navbar-inner {
-  border-color: #2d3744;
+  border-color: white;
+  border: transparent;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff222222', endColorstr='#ff111111', GradientType=0);
-  background: #2d3744 no-repeat center center;
-  height: 70px;
+  /*background: rgba(0,0,0,.2) no-repeat center center;*/
+  background: white no-repeat center center;
+  height: 58px;
   min-width: 1000px;
+  margin: 0px;
 }
 #responseEditor{
     margin-top: 10px;
+}
+#menu-right a{
+    /*margin-top: 1px;*/
+    /*margin-right: 20em;*/
+    /*color: #4d90fe;*/
+    color: black;
+    float: right;
+}
+#menu-right h1{
+    font-size: 1.3em;
+    line-height: 1.0em;
+    margin-bottom: 0.75em;
+    font-weight: bold;
+    font-family: 'AvenirLT-Heavy',"Helvetica Neue",Helvetica,Arial,sans-serif;
+    letter-spacing: 1.5px;
+    color: #2d3745;
+}
+#siteLogo{
+    margin-right: 6px;
+}
+.brand-openCurly{
+    color:#BA1414;
+}
+.brand-API{
+    color:#BA1414;
+}
+.example{
+    color: gray;
 }
