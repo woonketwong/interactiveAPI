@@ -14,11 +14,10 @@
 	          </select>
 	        </td>
 	        <td class="url">
-	          <input type="text" name="url" id="url" class placeholder="URL" ng-model="url">
+	          <input type="text" name="url" id="url" class placeholder="http://" ng-model="url">
 	        </td>
 	      </tr>
 	    </table>
-	    <p class="example">Example:</br>www.google.com/calendar/feeds/developer-calendar@google.com/public/full?alt=json</p>
 	  </div>
 	</div>
 
@@ -29,6 +28,7 @@
 	    <button type="submit" class="btn btn-large btn-primary" id="execute_button" ng-click="httpRequest()">
 	      Launch Request
 	    </button>
+	  </br><p class="example">Example:&nbsp&nbsp www.google.com/calendar/feeds/developer-calendar@google.com/public/full?alt=json</p>
 	    <button class="btn btn-large disabled hide" data-bind="bsvisible:isExecuting()"><i class="icon-refresh icon-spin"></i> Working...</button>
 	    <div id="body">
 	      <!-- <textarea name="body" class="hide" rows="6"></textarea> -->
